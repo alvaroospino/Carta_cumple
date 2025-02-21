@@ -398,7 +398,13 @@
             🎁
         </div>
     </div>
-
+     <div class="final-card" id="finalCard">
+        <div class="heart-icon">💝</div>
+        <div class="message">
+            ¡Te quiero muchísimo!<br>
+            Gracias por ser parte de mi vida 💖
+        </div>
+    </div>
     <script>
         function createBalloon() {
             const balloon = document.createElement('div');
@@ -450,15 +456,23 @@
             setInterval(createHeart, 500);
         }
 
-        function openGift() {
+       function openGift() {
             const giftBox = document.getElementById("giftBox");
             const surpriseMsg = document.getElementById("surpriseMsg");
+            const finalCard = document.getElementById("finalCard");
             
             giftBox.style.transform = "scale(1.2)";
+            
             setTimeout(() => {
-                giftBox.innerHTML = "💝";
-                surpriseMsg.innerHTML = "Cami.. <br> tu sonrisa debería venir con advertencia… <br> Riesgo alto de infarto y pérdida de autocontrol. 🏹💞";
-                launchConfetti();
+                giftBox.style.opacity = "0";
+                surpriseMsg.style.opacity = "0";
+                
+                setTimeout(() => {
+                    giftBox.style.display = "none";
+                    surpriseMsg.style.display = "none";
+                    finalCard.classList.add("show");
+                    launchConfetti();
+                }, 500);
             }, 500);
         }
 
