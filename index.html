@@ -373,6 +373,100 @@
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
+
+         /* Estilos para la carta final */
+        .final-card {
+            position: absolute;
+            background: linear-gradient(135deg, #fff8f8, #ffffff);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 90%;
+            width: 320px;
+            opacity: 0;
+            transform: translateY(100vh) scale(0.5);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #ff758c;
+            display: none;
+        }
+
+        .final-card.show {
+            display: block;
+            animation: cardRiseUp 1.5s forwards cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .final-card .message {
+            color: #5a494b;
+            font-size: clamp(18px, 4vw, 24px);
+            line-height: 1.5;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .final-card .heart-icon {
+            font-size: 40px;
+            margin: 15px 0;
+            display: inline-block;
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .final-card.show .message {
+            animation: fadeInUp 1s forwards 0.8s;
+        }
+
+        .final-card.show .heart-icon {
+            animation: popHeart 1s forwards 1.2s;
+        }
+
+        @keyframes cardRiseUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0.5);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-20px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popHeart {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            70% {
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Ajuste del contenedor de sorpresa para la nueva carta */
+        .surprise-container {
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px;
+        }
     </style>
 </head>
 <body>
